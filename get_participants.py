@@ -11,10 +11,26 @@ excluded_users = [
     "codacy-badger",
 ]
 per_page = 100
+api_user = ""
+api_user_token = ""
 
 # prompt for options
 owner = input(f"Repo owner [{owner}] ? ", ) or owner
 repo = input(f"Repo name [{repo}] ? ") or repo
+api_user = input(f"API user  (empty for unauthenticated access) [] ? ") or api_user
+if api_user:
+    import getpass
+    print("see https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token")
+    logged = ""
+    while not logged:
+        api_token = getpass.getpass(f"access token for {api_user} (not echoed)? ")
+        r = requests.get('https://api.github.com/user', auth=(api_user, api_token))
+        logged = r.json().get("login", "")
+        if logged:
+            print(f"logged as {logged}")
+        else:
+            print("\nAuthentication error\n")
+
 # excluded_users = " ".join(excluded_users)
 # excluded_users = (input(f"excluded users [{excluded_users}] ? ") or excluded_users).split()
 print()
