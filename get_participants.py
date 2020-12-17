@@ -33,12 +33,19 @@ commenters = []
 for p in range(1, 200):
     r = requests.get(f"https://api.github.com/repos/{owner}/{repo}/issues/comments?per_page={per_page};page={p}").json()
     commenters += [c["user"]["login"] for c in r]
-    print(f"getting commenters (page({p}): {len(r)}")
+    print(f"getting commenters (page {p}): {len(r)}")
+    if len(r) < per_page:
+        break
+
+for p in range(1, 200):
+    r = requests.get(f"https://api.github.com/repos/{owner}/{repo}/pulls/comments?per_page={per_page};page={p}").json()
+    commenters += [c["user"]["login"] for c in r]
+    print(f"getting pr commenters (page {p}): {len(r)}")
     if len(r) < per_page:
         break
 
 # report unique names
 unique_users = [f"@{u}" for u in sorted(set(commenters + contributors))
                 if u not in excluded_users]
-print(f"\nUnique users for github.com/{owner}/{repo}:")
+print(f"\nUnique users ({len(unique_users)}) for github.com/{owner}/{repo}:")
 print(", ".join(unique_users))
