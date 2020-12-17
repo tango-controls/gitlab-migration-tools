@@ -5,9 +5,9 @@
 Returns the Github user names of contributors and commenters of a github project
 
 ```console
-$ python3 ./get_participants.py 
-Repo owner? [tango-controls]:
-Repo name? [pytango]: jtango
+$ python3 ./get_participants.py
+Repo owner [tango-controls] ? 
+Repo name [pytango] ? jtango
 
 getting contributors (page 1): 7
 getting commenters (page(1): 100
