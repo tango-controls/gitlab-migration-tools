@@ -1,5 +1,9 @@
 # gitlab-migration-tools
 
+## get_participants.py 
+
+Returns the Github user names of contributors and commenters of a github project
+
 ```console
 $ python3 ./get_participants.py 
 Repo owner? [tango-controls]:
