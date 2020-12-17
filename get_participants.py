@@ -17,6 +17,8 @@ repo = input(f"Repo name [{repo}] ? ") or repo
 # excluded_users = " ".join(excluded_users)
 #excluded_users = (input(f"excluded users [{excluded_users}] ? ") or excluded_users).split()
 
+print()
+
 # extract user names from people that contributed commits
 contributors = []
 for p in range(1, 200):
