@@ -10,13 +10,13 @@ excluded_users = [
     "sonarcloud[bot]",
     "codacy-badger",
 ]
-per_page =100
+per_page = 100
 
+# prompt for options
 owner = input(f"Repo owner [{owner}] ? ", ) or owner
 repo = input(f"Repo name [{repo}] ? ") or repo
 # excluded_users = " ".join(excluded_users)
-#excluded_users = (input(f"excluded users [{excluded_users}] ? ") or excluded_users).split()
-
+# excluded_users = (input(f"excluded users [{excluded_users}] ? ") or excluded_users).split()
 print()
 
 # extract user names from people that contributed commits
@@ -36,11 +36,6 @@ for p in range(1, 200):
     print(f"getting commenters (page({p}): {len(r)}")
     if len(r) < per_page:
         break
-
-# from pprint import pprint
-# from collections import Counter
-# pprint(Counter(commenters))
-# pprint(contributors)
 
 # report unique names
 unique_users = [f"@{u}" for u in sorted(set(commenters + contributors))
