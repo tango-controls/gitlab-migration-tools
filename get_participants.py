@@ -12,10 +12,10 @@ excluded_users = [
 ]
 per_page =100
 
-owner = input(f"Repo owner? [{owner}]", ) or owner
-repo = input(f"Repo name? [{repo}]") or repo
+owner = input(f"Repo owner [{owner}] ? ", ) or owner
+repo = input(f"Repo name [{repo}] ? ") or repo
 # excluded_users = " ".join(excluded_users)
-#excluded_users = (input(f"excluded users? [{excluded_users}]") or excluded_users).split()
+#excluded_users = (input(f"excluded users [{excluded_users}] ? ") or excluded_users).split()
 
 # extract user names from people that contributed commits
 contributors = []
