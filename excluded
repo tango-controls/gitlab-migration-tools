@@ -1,0 +1,8 @@
+# white-space-separated list of GH account names to ignore by get_participants
+# blank lines or lines starting with # are ignored
+
+dependabot[bot]
+codecov[bot]
+tango-controls-bot
+sonarcloud[bot]
+codacy-badger

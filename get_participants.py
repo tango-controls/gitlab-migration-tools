@@ -3,13 +3,8 @@ import requests
 # default parameters
 owner = "tango-controls"
 repo = "pytango"
-excluded_users = [
-    "dependabot[bot]",
-    "codecov[bot]",
-    "tango-controls-bot",
-    "sonarcloud[bot]",
-    "codacy-badger",
-]
+exclude_file = "./excluded"
+
 per_page = 100
 api_user = ""
 api_user_token = ""
@@ -17,6 +12,15 @@ api_user_token = ""
 # prompt for options
 owner = input(f"Repo owner [{owner}] ? ", ) or owner
 repo = input(f"Repo name [{repo}] ? ") or repo
+exclude_file = input(f"File with excluded accounts [{exclude_file}] ? ") or exclude_file
+
+exclude_list = []
+with open(exclude_file) as f:
+    for line in f:
+        if line.strip().startswith("#"):
+            continue
+        exclude_list += line.split()
+
 api_user = input(f"API user  (empty for unauthenticated access) [] ? ") or api_user
 if api_user:
     import getpass
@@ -31,8 +35,6 @@ if api_user:
         else:
             print("\nAuthentication error\n")
 
-# excluded_users = " ".join(excluded_users)
-# excluded_users = (input(f"excluded users [{excluded_users}] ? ") or excluded_users).split()
 print()
 
 # extract user names from people that contributed commits
@@ -60,8 +62,16 @@ for p in range(1, 200):
     if len(r) < per_page:
         break
 
+
 # report unique names
 unique_users = [f"@{u}" for u in sorted(set(commenters + contributors))
-                if u not in excluded_users]
+                if u not in exclude_list]
+
+excluded_users = [f"@{u}" for u in sorted(set(commenters + contributors))
+                if u in exclude_list]
+
 print(f"\nUnique users ({len(unique_users)}) for github.com/{owner}/{repo}:")
 print(", ".join(unique_users))
+
+print(f"\nExcluded users ({len(excluded_users)}) for github.com/{owner}/{repo}:")
+print(", ".join(excluded_users))
