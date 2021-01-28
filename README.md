@@ -18,3 +18,15 @@ Unique users for github.com/tango-controls/jtango:
 @Ingvord, @KrystianKedron, @Pascal-Verdier, @altavir, @bourtemb, @gwen-soleil, @jc17609, @jkotan, @ma-neumann, @reszelaz, @sergirubio, @t-b, @tre3k
 
 ```
+
+## add_moved_branch.sh
+
+Helper script to add a `moved-to-gitlab` branch to the old repository. So, the day of the migration, do:
+
+1. archive the GH project
+2. import it as `https://gitlab.com/tango-controls/<projectname>` using the @tango-controls-bot account, and check it.
+3. momentarily unarchive the GH project 
+4. run `add_moved_branch.sh <projectname>` 
+4. In GH, change the default branch of the project to `moved-to-gitlab` and change the project description to "Moved to gitlab"
+5. Archive the project in GH again.
+6. Notify the tango community about the migration
