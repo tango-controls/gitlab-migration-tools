@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z "$1" ]; then echo "Usage: $0 PROJECT_NAME"; exit(1); fi
+if [ -z "$1" ]; then echo "Usage: $0 PROJECT_NAME"; exit 1; fi
 PROJECT=$1
 ORIG="https://github.com/tango-controls"
 DEST="https://gitlab.com/tango-controls"
