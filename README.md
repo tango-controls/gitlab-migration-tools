@@ -29,4 +29,4 @@ Helper script to add a `moved-to-gitlab` branch to the old repository. So, the d
 4. run `add_moved_branch.sh <projectname>` 
 4. In GH, change the default branch of the project to `moved-to-gitlab` and change the project description to "Moved to gitlab"
 5. Archive the project in GH again.
-6. Notify the tango community about the migration (send an email to [tango-info mailing list](info@tango-controls.org)) and add a comment in [this migration issue](https://github.com/tango-controls/TangoTickets/issues/47)
+6. Notify the tango community about the migration (send an email to info@tango-controls.org) and add a comment in [this migration issue](https://github.com/tango-controls/TangoTickets/issues/47)
