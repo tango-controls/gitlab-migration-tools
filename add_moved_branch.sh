@@ -14,4 +14,4 @@ git rm -rf .
 echo "## $PROJECT moved to $DEST/$PROJECT" > README.md
 git add .
 git commit -m "Move to $DEST/$PROJECT"
-#git push origin $BRANCH
+git push origin $BRANCH
