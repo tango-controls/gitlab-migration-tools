@@ -4,6 +4,8 @@
 
 Returns the Github user names of contributors and commenters of a github project
 
+**Tip:** you can exclude account names from the output by listing them in the `exclude` file.
+
 ```console
 $ python3 ./get_participants.py
 Repo owner [tango-controls] ? 
