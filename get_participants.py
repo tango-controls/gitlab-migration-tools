@@ -21,6 +21,15 @@ with open(exclude_file) as f:
             continue
         exclude_list += line.split()
 
+# Exclude users registered in https://mensuel.framapad.org/p/migration_ready_2548763689
+r = requests.get("https://mensuel.framapad.org/p/migration_ready_2548763689/export/txt")
+registered_users = [
+    line.strip().split()[0]
+    for line in r.text.split("\n")
+    if line.strip() and (not line.strip().startswith("#"))
+]
+exclude_list.extend(registered_users)
+
 api_user = input(f"API user  (empty for unauthenticated access) [] ? ") or api_user
 if api_user:
     import getpass
