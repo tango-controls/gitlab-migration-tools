@@ -5,6 +5,7 @@
 Returns the Github user names of contributors and commenters of a github project
 
 **Tip:** you can exclude account names from the output by listing them in the `exclude` file.
+Users registered at https://mensuel.framapad.org/p/migration_ready_2548763689 are automatically excluded.
 
 **Note:** the script should work with python>=3.6, but is tested with python>=3.7
 
