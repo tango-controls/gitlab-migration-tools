@@ -1,6 +1,6 @@
 # gitlab-migration-tools
 
-## get_participants.py 
+## get_participants.py
 
 Returns the Github user names of contributors and commenters of a github project
 
@@ -10,7 +10,7 @@ Returns the Github user names of contributors and commenters of a github project
 
 ```console
 $ python3 ./get_participants.py
-Repo owner [tango-controls] ? 
+Repo owner [tango-controls] ?
 Repo name [pytango] ? jtango
 
 getting contributors (page 1): 7
@@ -27,10 +27,9 @@ Unique users for github.com/tango-controls/jtango:
 
 Helper script to add a `moved-to-gitlab` branch to the old repository. So, the day of the migration, do:
 
-1. archive the GH project
-2. import it as `https://gitlab.com/tango-controls/<projectname>` using the @tango-controls-bot account, and check it.
-3. momentarily unarchive the GH project 
-4. run `add_moved_branch.sh <projectname>` 
-4. In GH, change the default branch of the project to `moved-to-gitlab` and change the project description to "Moved to gitlab"
-5. Archive the project in GH again.
+1. Run `add_moved_branch.sh <projectname>`
+2. In GH, change the default branch of the project to `moved-to-gitlab` and change the project description to "Moved to gitlab"
+3. Archive the GH project
+4. Import it as `https://gitlab.com/tango-controls/<projectname>` using the @tango-controls-bot account, and check it.
+5. Delete the `moved-to-gitlab` branch in GitLab and set the proper default branch.
 6. Notify the tango community about the migration (send an email to info@tango-controls.org) and add a comment in [this migration issue](https://github.com/tango-controls/TangoTickets/issues/47)
