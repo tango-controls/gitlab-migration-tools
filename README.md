@@ -6,6 +6,10 @@ Returns the Github user names of contributors and commenters of a github project
 
 **Tip:** you can exclude account names from the output by listing them in the `exclude` file.
 
+**Tip2:** to auto-populate the exclude list with the names of already-known migrated users, you can do:
+
+```wget https://mensuel.framapad.org/p/migration_ready_2548763689/export/txt && cat txt >> exclude```
+
 **Note:** the script should work with python>=3.6, but is tested with python>=3.7
 
 ```console
